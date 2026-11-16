@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "sharedFile": {
+      "title": "Shared File",
+      "description": "Global real-time shared dataset metadata and processing outputs",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "size": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["csv", "xlsx", "json", "pdf", "txt"]
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["structured", "unstructured"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["raw", "cleaning", "cleaned", "analyzed", "error"]
+        },
+        "uploadedAt": {
+          "type": "string"
+        },
+        "rawContent": {
+          "type": "string"
+        },
+        "structuredRowsJson": {
+          "type": "string"
+        },
+        "columnsJson": {
+          "type": "string"
+        },
+        "unstructuredSummaryJson": {
+          "type": "string"
+        },
+        "qualityReportJson": {
+          "type": "string"
+        },
+        "analyticsJson": {
+          "type": "string"
+        },
+        "isSample": {
+          "type": "boolean"
+        }
+      },
+      "required": ["name", "size", "type", "classification", "status", "uploadedAt"]
+    }
+  },
+  "firestore": {
+    "/shared_files/{fileId}": {
+      "schema": "sharedFile",
+      "description": "Global shared files library accessible across all sessions"
+    }
+  }
+}
