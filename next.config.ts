@@ -1,6 +1,6 @@
-import type {NextConfig} from 'next';
-
 const nextConfig: NextConfig = {
+  output: 'export',               // <-- ADD THIS (under line 3)
+  basePath: '/Ai-Data-analysis-', // <-- ADD THIS (under line 3)
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
